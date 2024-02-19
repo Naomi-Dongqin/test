@@ -101,6 +101,28 @@ app.get("/", (req, res) => {
     
 });
 
+// Setup a route to return the menu page
+app.get("/on-the-menu", (req, res) => {
+    res.render("on-the-menu", {
+        title:"on-the-menu Page"
+    });
+});
+
+// Setup a route to return the signup page
+app.get("/sign-up", (req, res) => {
+    res.render("sign-up", {
+        title: "Sign-Up Page"
+    });
+});
+
+// Setup a route to return the log in page
+app.get("/log-in", (req, res) => {
+    res.render("log-in", {
+        title: "Log-in Page"
+    });
+});
+
+
 
 
 // This use() will not allow requests to go beyond it
