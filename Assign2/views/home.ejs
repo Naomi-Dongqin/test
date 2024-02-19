@@ -1,0 +1,17 @@
+<h2>Home Page</h2>
+<p>Visit <a href='/on-the-menu'>on-the-menu page</a></p>
+
+<!--Table-->
+<table border="1">
+    <tr>
+        
+        <td>title</td>
+        <td>includes</td>
+        <td>category</td>
+    </tr>
+    <% data.forEach((meal)=>{ %>
+        <%- include("partials/mealkit", meal) %>
+    <%});%>
+    
+
+</table>
