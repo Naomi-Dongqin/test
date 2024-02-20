@@ -2,7 +2,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #9a9393;
 }
 
 header {
@@ -14,8 +13,6 @@ header {
     align-items: center;
     justify-content: space-between;
 }
-
-
 
 nav {
    width:1200px;
@@ -42,7 +39,7 @@ nav a:hover{
 }
 .hero{
     position:relative;
-overflow:hidden; 
+    overflow:hidden; 
 }
 .hero img{
     width:100%;
@@ -50,7 +47,7 @@ overflow:hidden;
     padding-left: 30px;
 }
 .hero-text{
-    position: absolute;
+    position: relative;
     top: 30%;
     left:40%;
     transform: translate(-50%, -50%);
@@ -97,13 +94,13 @@ overflow:hidden;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 40px; 
-    padding: 20px; 
+    padding: 10px; 
 }
 
 .feature {
     text-align: center;
     background-color: #fff;
-    padding: 20px;
+    padding: 5px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -131,50 +128,6 @@ overflow:hidden;
     line-height: 1.5; 
 }
 
-/* Featured Meal Kits section styles */
-.featured-meal-kits {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    padding: 40px;
-    background-color: #f9f9f9;
-}
-
-.meal-kit {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 0 0 calc(33.3333% - 20px); 
-}
-
-.meal-kit img {
-    max-width: 80%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.meal-kit h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color:#7CB342;
-}
-
-.meal-kit p {
-    font-size: 1em;
-    color: #666;
-    line-height: 1.5;
-}
-
-.meal-kit .price {
-    font-size: 1em;
-    color: #666;
-    font-weight: bold;
-}
 /* Style the search buttons */
 .search-button {
     background-color: #ffb300;

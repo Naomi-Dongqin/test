@@ -15,6 +15,8 @@ const express = require("express");
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
 
+// Require the mealkit-util module
+const mealkitUtil = require('./modules/mealkit-util');
 
 // Make the "assets" folder public (aka Static)
 app.use(express.static(path.join(__dirname, "/assets")));
@@ -24,79 +26,18 @@ app.use(express.static(path.join(__dirname, "/assets")));
  app.set("layout", "layouts/main");
  app.use(expressLayouts);
 
+   // Get meal kits grouped by category using the getMealKitsByCategory() function from mealkit-util
+   const mealKits = mealkitUtil.getAllMealKits(); 
+   const mealKitsByCategory = mealkitUtil.getMealKitsByCategory(mealKits);
 // Setup a home page route
 app.get("/", (req, res) => {
-    var mealKits = [
-        {
-            title: "Sautéed Ground Pork over Jasmine Rice",
-            includes: "Toasted Peanuts & Quick-Pickled Cucumber Salad",
-            description: "Gingery pork, crunchy cucumbers, and toasty peanuts.",
-            category: "Classic Meals",
-            price: 19.99,
-            cookingTime: 25,
-            servings: 2,
-            imageUrl: "/images/meal_2",
-            featuredMealKit: true
-        },
-        {
-            title: "Teriyaki Chicken with Steamed Vegetables",
-            includes: "White Rice & Sesame Ginger Sauce",
-            description: "Juicy teriyaki chicken served with a side of steamed vegetables.",
-            category: "Classic Meals",
-            price: 24.99,
-            cookingTime: 30,
-            servings: 2,
-            imageUrl: "/assets/teriyaki_chicken.jpg",
-            featuredMealKit: true
-        },
-        {
-            title: "Vegetarian Chili with Cornbread",
-            includes: "Black Beans, Corn & Avocado Salsa",
-            description: "Hearty vegetarian chili topped with avocado salsa, served with warm cornbread.",
-            category: "Classic Meals",
-            price: 17.99,
-            cookingTime: 35,
-            servings: 4,
-            imageUrl: "/assets/vegetarian_chili.jpg",
-            featuredMealKit: true
-        },
-        {
-            title: "Grilled Salmon with Lemon Dill Sauce",
-            includes: "Roasted Potatoes & Green Beans",
-            description: "Fresh salmon fillets grilled to perfection, topped with lemon dill sauce, served with roasted potatoes and green beans.",
-            category: "Classic Meals",
-            price: 26.99,
-            cookingTime: 25,
-            servings: 2,
-            imageUrl: "/assets/grilled_salmon.jpg",
-            featuredMealKit: true
-        },
-        {
-            title: "Mediterranean Grilled Lamb with Couscous",
-            includes: "Tzatziki Sauce & Greek Salad",
-            description: "Grilled lamb marinated in Mediterranean spices, served with couscous and tzatziki sauce.",
-            category: "Mediterranean Delights",
-            price: 29.99,
-            cookingTime: 40,
-            servings: 2,
-            imageUrl: "/assets/mediterranean_lamb.jpg",
-            featuredMealKit: false
-        },
-        {
-            title: "Tex-Mex Beef Tacos with Guacamole",
-            includes: "Homemade Tortillas & Salsa",
-            description: "Spicy beef tacos with homemade tortillas, served with fresh guacamole and salsa.",
-            category: "Mediterranean Delights",
-            price: 21.99,
-            cookingTime: 20,
-            servings: 3,
-            imageUrl: "/assets/beef_tacos.jpg",
-            featuredMealKit: false
-        }
-    ];
+  
     res.render("home", {
-        mealkits,
-        title: "Home Page"
+        mealKits,  // is equal to "mealkits:mealKits"
+        // variable used in main.ejs
+        title: "Home Page",
+        css: "/CSS/home.css"
+        
     });
     
 });
@@ -104,24 +45,27 @@ app.get("/", (req, res) => {
 // Setup a route to return the menu page
 app.get("/on-the-menu", (req, res) => {
     res.render("on-the-menu", {
-        title:"on-the-menu Page"
+        title: "on-the-menu Page",
+        css: "/CSS/on-the-menu.css",
+        mealKitsByCategory: mealKitsByCategory // Pass mealKitsByCategory variable here
     });
 });
 
 // Setup a route to return the signup page
 app.get("/sign-up", (req, res) => {
     res.render("sign-up", {
-        title: "Sign-Up Page"
+        title: "Sign-Up Page",
+        css: "/CSS/sign-up.css"
     });
 });
 
 // Setup a route to return the log in page
 app.get("/log-in", (req, res) => {
     res.render("log-in", {
-        title: "Log-in Page"
+        title: "Log-in Page",
+        css: "CSS/log-in.css"
     });
 });
-
 
 
 

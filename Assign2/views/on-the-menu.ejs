@@ -1,2 +1,28 @@
-<h2>Menu Page</h2>
-<p>Go back to  <a href='/'>the home page</a></p>
+
+<!-- HTML -->
+<head>
+    <title>Menu Page - Mealkits Database</title>
+    <!-- Include the CSS file for the on-the-menu page -->
+    <link rel="stylesheet" href="/CSS/on-the-menu.css">
+</head>
+
+<% layout = 'layouts/main' %>
+
+<main>
+    <!-- Section for each meal kit category -->
+    <% mealKitsByCategory.forEach(function(category) { %>
+        <section class="category-section">
+            <h2><%= category.categoryName %></h2>
+            <div class="container">
+                <!-- Render each meal kit within the category -->
+                <% category.mealKits.forEach(function(mealKit) { %>
+                    <%- include('partials/mealkit', { mealKit: mealKit }) %>
+                <% }); %>
+            </div>
+        </section>
+    <% }); %>
+</main>
+
+
+
+

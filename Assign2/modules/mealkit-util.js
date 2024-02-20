@@ -8,7 +8,7 @@ const mealkits = [
         price: 19.99,
         cookingTime: 25,
         servings: 2,
-        imageUrl: "/images/meal_2",
+        imageUrl: "/images/classical_01.jpg",
         featuredMealKit: true
     },
     {
@@ -19,7 +19,7 @@ const mealkits = [
         price: 24.99,
         cookingTime: 30,
         servings: 2,
-        imageUrl: "/assets/teriyaki_chicken.jpg",
+        imageUrl: "/images/classical_02.jpg",
         featuredMealKit: true
     },
     {
@@ -30,7 +30,7 @@ const mealkits = [
         price: 17.99,
         cookingTime: 35,
         servings: 4,
-        imageUrl: "/assets/vegetarian_chili.jpg",
+        imageUrl: "/images/classical_03.jpg",
         featuredMealKit: true
     },
     {
@@ -41,7 +41,7 @@ const mealkits = [
         price: 26.99,
         cookingTime: 25,
         servings: 2,
-        imageUrl: "/assets/grilled_salmon.jpg",
+        imageUrl: "/images/classical_04.jpg",
         featuredMealKit: true
     },
     {
@@ -52,8 +52,8 @@ const mealkits = [
         price: 29.99,
         cookingTime: 40,
         servings: 2,
-        imageUrl: "/assets/mediterranean_lamb.jpg",
-        featuredMealKit: false
+        imageUrl: "/images/med_01.jpg",
+        featuredMealKit: true
     },
     {
         title: "Tex-Mex Beef Tacos with Guacamole",
@@ -63,13 +63,13 @@ const mealkits = [
         price: 21.99,
         cookingTime: 20,
         servings: 3,
-        imageUrl: "/assets/beef_tacos.jpg",
+        imageUrl: "/images/med_01.jpg",
         featuredMealKit: false
     }
 ];
 
 
-module.exports.getAllmealKits = function () {
+module.exports.getAllMealKits = function () {
     return mealkits;
 }
 //  used on the home page to display the featured meal kits
