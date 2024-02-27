@@ -37,6 +37,7 @@ nav a:hover{
     height:auto;
     margin: 40px;
 }
+
 .hero{
     position:relative;
     overflow:hidden; 
@@ -47,7 +48,7 @@ nav a:hover{
     padding-left: 30px;
 }
 .hero-text{
-    position: relative;
+    position: absolute;
     top: 30%;
     left:40%;
     transform: translate(-50%, -50%);

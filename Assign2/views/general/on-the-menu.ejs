@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/CSS/on-the-menu.css">
 </head>
 
-<% layout = 'layouts/main' %>
+<% layout = '../layouts/main' %>
 
 <main>
     <!-- Section for each meal kit category -->
@@ -16,7 +16,7 @@
             <div class="container">
                 <!-- Render each meal kit within the category -->
                 <% category.mealKits.forEach(function(mealKit) { %>
-                    <%- include('partials/mealkit', { mealKit: mealKit }) %>
+                    <%- include('../partials/mealKit', { mealKit: mealKit }) %>
                 <% }); %>
             </div>
         </section>

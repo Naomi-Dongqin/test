@@ -13,10 +13,11 @@
 const path = require("path");
 const express = require("express");
 const expressLayouts = require('express-ejs-layouts');
+
 const app = express();
 
 // Require the mealkit-util module
-const mealkitUtil = require('./modules/mealkit-util');
+const mealKitUtil = require('./modules/mealKit-util');
 
 // Make the "assets" folder public (aka Static)
 app.use(express.static(path.join(__dirname, "/assets")));
@@ -24,49 +25,19 @@ app.use(express.static(path.join(__dirname, "/assets")));
 // set up EJS
  app.set("view engine", "ejs");
  app.set("layout", "layouts/main");
- app.use(expressLayouts);
+app.use(expressLayouts);
+ 
+// Load the controllers into express
+const generalController = require("./controllers/generalController");
+const mealKitsController = require("./controllers/mealKitsController");
+app.use("/", generalController);
+app.use("/mealkits", mealKitsController);
+ 
+
 
    // Get meal kits grouped by category using the getMealKitsByCategory() function from mealkit-util
-   const mealKits = mealkitUtil.getAllMealKits(); 
-   const mealKitsByCategory = mealkitUtil.getMealKitsByCategory(mealKits);
-// Setup a home page route
-app.get("/", (req, res) => {
-  
-    res.render("home", {
-        mealKits,  // is equal to "mealkits:mealKits"
-        // variable used in main.ejs
-        title: "Home Page",
-        css: "/CSS/home.css"
-        
-    });
-    
-});
-
-// Setup a route to return the menu page
-app.get("/on-the-menu", (req, res) => {
-    res.render("on-the-menu", {
-        title: "on-the-menu Page",
-        css: "/CSS/on-the-menu.css",
-        mealKitsByCategory: mealKitsByCategory // Pass mealKitsByCategory variable here
-    });
-});
-
-// Setup a route to return the signup page
-app.get("/sign-up", (req, res) => {
-    res.render("sign-up", {
-        title: "Sign-Up Page",
-        css: "/CSS/sign-up.css"
-    });
-});
-
-// Setup a route to return the log in page
-app.get("/log-in", (req, res) => {
-    res.render("log-in", {
-        title: "Log-in Page",
-        css: "CSS/log-in.css"
-    });
-});
-
+   const mealKits = mealKitUtil.getAllMealKits(); 
+   const mealKitsByCategory = mealKitUtil.getMealKitsByCategory(mealKits);
 
 
 // This use() will not allow requests to go beyond it

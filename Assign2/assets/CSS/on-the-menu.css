@@ -1,27 +1,4 @@
-/* Responsive layout using CSS Grid 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Adjust the size of the images for smaller screens */
-.meal-kit-card img {
-    width: 100%; /* Ensure the image fits within the container */
-    height: auto;
-}
-
-/* Media query for smaller screens 
-@media (max-width: 768px) {
-    /* Display one column on phones 
-    .container {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}*/
-
-
-
+/* special format for on-the-menu page */
 /* Responsive layout using CSS Grid and Flexbox */
 .container {
     display: grid;

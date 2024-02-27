@@ -1,5 +1,5 @@
 
-const mealkits = [
+let mealKits = [
     {
         title: "Sautéed Ground Pork over Jasmine Rice",
         includes: "Toasted Peanuts & Quick-Pickled Cucumber Salad",
@@ -70,24 +70,24 @@ const mealkits = [
 
 
 module.exports.getAllMealKits = function () {
-    return mealkits;
+    return mealKits;
 }
 //  used on the home page to display the featured meal kits
-module.exports.getFeaturedMealKits = function (mealkits) {
+module.exports.getFeaturedMealKits = function (mealKits) {
     let filtered = [];
-    for (let i = 0; i < mealkits.length; i++) {
-        if (mealkits[i].featuredMealKit) {
-            filtered.push(mealkits[i]);
+    for (let i = 0; i < mealKits.length; i++) {
+        if (mealKits[i].featuredMealKit) {
+            filtered.push(mealKits[i]);
         }
     }
     return filtered;
 };
 
 // used on the on-the-menu page to diaplay meal kits grouped into categories
-module.exports.getMealKitsByCategory= function (mealkits) {
+module.exports.getMealKitsByCategory= function (mealKits) {
     let groupedByCategory = {};
-    for (let i = 0; i < mealkits.length;i++) {
-        let meal = mealkits[i];
+    for (let i = 0; i < mealKits.length;i++) {
+        let meal = mealKits[i];
         if (!groupedByCategory[meal.category]) {
             groupedByCategory[meal.category] = [];
         }
